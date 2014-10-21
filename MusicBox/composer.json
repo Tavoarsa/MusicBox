@@ -4,7 +4,8 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"videlalvaro/php-amqplib": "v2.1.0"
 	},
 	"autoload": {
 		"classmap": [
@@ -33,6 +34,6 @@
 		"preferred-install": "dist"
 	},
 	"minimum-stability": "stable"
-
 	
 }
+

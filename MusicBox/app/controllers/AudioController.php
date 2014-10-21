@@ -80,7 +80,23 @@ class AudioController extends \BaseController {
 				}
 
 				$audios = Audio::lastRown();
-				return Response::Json($audios);		
+				return Response::Json($audios);
+
+
+
+				$amqp = require('amqp');
+				$helper = require('./amqp-hacks');
+ 
+				$conexion = amqp.createConnection({host: 'localhost'});
+ 
+				conexion.on('ready', function(){
+ 
+    			$mensaje = 'Hola CODEHERO ' + new Date();
+ 
+    			conexion.publish('sencilla', mensaje);
+ 
+    		helper.safeEndConnection(conexion);
+});
 
 
 
