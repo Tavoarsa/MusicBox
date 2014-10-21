@@ -84,18 +84,7 @@ class AudioController extends \BaseController {
 
 
 
-				$amqp = require('amqp');
-				$helper = require('./amqp-hacks');
- 
-				$conexion = amqp.createConnection({host: 'localhost'});
- 
-				conexion.on('ready', function(){
- 
-    			$mensaje = 'Hola CODEHERO ' + new Date();
- 
-    			conexion.publish('sencilla', mensaje);
- 
-    		helper.safeEndConnection(conexion);
+				
 });
 
 
