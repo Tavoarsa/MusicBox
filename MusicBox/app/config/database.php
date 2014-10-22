@@ -68,7 +68,7 @@ return array(
 			'host'     => 'localhost',
 			'database' => 'DbMusicBox',
 			'username' => 'postgres',
-			'password' => 'Gas-1234',
+			'password' => 'alarri',//'Gas-1234',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
