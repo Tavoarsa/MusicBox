@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"videlalvaro/php-amqplib": "v2.1.0"
+		"fintech-fab/laravel-queue-rabbitmq": "~4.2"
 	},
 	"autoload": {
 		"classmap": [
@@ -14,7 +14,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"app/libraries"
 		]
 	},
 	"scripts": {
@@ -36,4 +37,3 @@
 	"minimum-stability": "stable"
 	
 }
-

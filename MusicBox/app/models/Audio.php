@@ -15,7 +15,7 @@ class Audio extends Eloquent
 				LIMIT 1';
 				return DB::select($sql);
 	}
-
+	
 
 
 }

@@ -9,7 +9,7 @@
     <body>
 
     {{ $content }}
-	<p>Esto es una prueba</p>
+	
     	
     	
     </body>

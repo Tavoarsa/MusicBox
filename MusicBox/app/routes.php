@@ -11,9 +11,6 @@
 |
 */
 
-
-
-
 Route::resource('files', 'AudioController');
 
 Route::get('/', 'AudioController@index');

@@ -1,4 +1,6 @@
 <?php
+use PhpAmqpLib\Connection\AMQPConnection;
+use PhpAmqpLib\Message\AMQPMessage;
 
 class AudioController extends \BaseController {
 
@@ -49,13 +51,12 @@ class AudioController extends \BaseController {
 	 */
 	public function store()
 		{
-			$name = Input::get('name');
-        	$route = '/home/Tavo/Documents/Progra/III Cuatrimestre/Projects/ProyectoI/Server/';
-			$file = Input::file('track'); 		
+			$file = Input::file('track'); 
 			$part= Input::get('parts');
 			$minutes= Input::get('minutes');
 			$format = Input::get('format');
 			$filename = $file->getClientOriginalName();
+			$route = public_path() . "/originalFiles/";	
 			$formato=$file->getClientOriginalExtension();
 			if($part || $minutes == null){
 				$part=0;
@@ -66,27 +67,31 @@ class AudioController extends \BaseController {
 				{
 
 						$upload_success = Input::file('track')->move($route, $filename); 
-						$name = Input::get('name');     	
 						$music = new Audio;
-						$music->name_audio = $name;
+						$music->name_audio = $filename;
 						$music->url_audio = $route;
 						$music->parts= $part;
 						$music->time_per_chunck= $minutes;
 						$music->save();
+
 						
 				}else
 					{
 						echo "upported Format" ;
 				}
-
-				$audios = Audio::lastRown();
-				return Response::Json($audios);
+				$rabbitMessage = array('id' => $music->id, 'file' => $music->url_audio . $music->name_audio, 'parts' => $music->parts, 'time_per_chunck' => $music->time_per_chunck );
 
 
+				$connection = new AMQPConnection('localhost', 5672, 'guest', 'guest');
+				$channel = $connection->channel();
 
+				$msg = new AMQPMessage(json_encode($rabbitMessage));
+				$channel->basic_publish($msg, '', 'hello');
+
+				$channel->close();
+				$connection->close();
 				
-});
-
+				return "!it works";
 
 
 		}
