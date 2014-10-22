@@ -30,29 +30,7 @@ return array(
 
 	'connections' => array(
 
-		'rabbitmq' => array(
-            'driver'         => 'rabbitmq',
-
-            'host'           => 'localhost',
-            'port'           => '5672',
-
-            'vhost'          => '',
-            'login'          => '',
-            'password'       => '',
-
-            'queue'          => 'laravel', // name of the default queue
-
-            'exchange_name'  => 'laravel', // name of the exchange
-
-            // Type of your exchange
-            // Can be AMQP_EX_TYPE_DIRECT or AMQP_EX_TYPE_FANOUT
-            // see documentation for more info
-            // http://www.rabbitmq.com/tutorials/amqp-concepts.html
-            'exchange_type'  => AMQP_EX_TYPE_DIRECT,
-            'exchange_flags' => AMQP_DURABLE,
-
-
-        ),
+		
 		'sync' => array(
 			'driver' => 'sync',
 		),
