@@ -91,7 +91,7 @@ class AudioController extends \BaseController {
 				$channel->close();
 				$connection->close();
 				
-				return "!it works";
+				return "!it works"!!!!;
 
 
 		}
