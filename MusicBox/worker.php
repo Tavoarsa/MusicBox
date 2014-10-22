@@ -11,8 +11,9 @@ $channel->queue_declare('hello', false, true, false, false);
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
 
 	$callback = function($msg){
-	//$obj =json_encode($msg->body);	
- 	echo " [x] Received ", $msg->body, "\n";
+	$obj =$msg->body;
+	$filelocation= json_decode($obj);
+	echo $filelocation->{'file'};
 
     //dividir el archivo
 

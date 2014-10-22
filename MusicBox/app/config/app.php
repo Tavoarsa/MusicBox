@@ -94,7 +94,7 @@ return array(
 	*/
 
 	'providers' => array(
-
+		'FintechFab\LaravelQueueRabbitMQ\LaravelQueueRabbitMQServiceProvider',
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
